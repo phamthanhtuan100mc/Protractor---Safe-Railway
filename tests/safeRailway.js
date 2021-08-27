@@ -1,3 +1,5 @@
+import { Account } from '../conf/constant';
+
 let HomePage = require('../pages/HomePage.js');
 let LoginPage = require('../pages/LoginPage.js');
 
@@ -12,7 +14,7 @@ describe('Positive case', function () {
 
         HomePage.clickLoginTab();
 
-        LoginPage.inputEmailPassword('tuan@mailinator.com', '1234qwer');
+        LoginPage.inputEmailPassword(Account.username, Account.password);
 
         LoginPage.clickLogin();
 
@@ -28,7 +30,7 @@ describe('Positive case', function () {
 
         HomePage.checkTitleText('Login page');
 
-        LoginPage.login('tuan@mailinator.com', '1234qwer');
+        LoginPage.login(Account.username, Account.password);
 
         HomePage.checkTitleText('Book ticket');
 
@@ -40,7 +42,7 @@ describe('Positive case', function () {
 
         HomePage.clickLoginTab();
 
-        LoginPage.login('tuan@mailinator.com', '1234qwer');
+        LoginPage.login(Account.username, Account.password);
 
         HomePage.clickContactTab();
 
@@ -58,7 +60,7 @@ describe('Negative case', function () {
 
         HomePage.clickLoginTab();
 
-        LoginPage.inputPassword('1234qwer');
+        LoginPage.inputPassword(Account.password);
 
         LoginPage.clickLogin();
 
@@ -71,7 +73,7 @@ describe('Negative case', function () {
 
         HomePage.clickLoginTab();
         
-        LoginPage.inputEmailPassword('tuan@mailinator.com', '1');
+        LoginPage.inputEmailPassword(Account.username, Account.invalidPassword);
         
         LoginPage.clickLogin();
         
@@ -83,19 +85,19 @@ describe('Negative case', function () {
 
         HomePage.clickLoginTab();
 
-        LoginPage.inputEmailPassword('tuan@mailinator.com', '1');
+        LoginPage.inputEmailPassword(Account.username, Account.invalidPassword);
 
         LoginPage.clickLogin();
         
-        LoginPage.inputPassword('2');
+        LoginPage.inputPassword(Account.invalidPassword);
         
         LoginPage.clickLogin();
         
-        LoginPage.inputPassword('3');
+        LoginPage.inputPassword(Account.invalidPassword);
         
         LoginPage.clickLogin();
         
-        LoginPage.inputPassword('4');
+        LoginPage.inputPassword(Account.invalidPassword);
         
         LoginPage.clickLogin();
         
