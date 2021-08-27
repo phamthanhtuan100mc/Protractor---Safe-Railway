@@ -1,5 +1,4 @@
-import { Account } from '../conf/constant';
-
+const Account = require('../conf/constant');
 let HomePage = require('../pages/HomePage.js');
 let LoginPage = require('../pages/LoginPage.js');
 
